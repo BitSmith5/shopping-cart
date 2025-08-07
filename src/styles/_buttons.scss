@@ -1,32 +1,34 @@
+@use './variables';
+
 .button {
   padding: 0.6rem 1.2rem;
-  border-radius: $border-radius;
+  border-radius: variables.$border-radius;
   border: none;
   font-weight: bold;
   text-transform: uppercase;
-  background: $color-primary;
+  background: variables.$color-primary;
   color: #000;
-  transition: background $transition-fast, transform $transition-fast, box-shadow $transition-fast;
+  transition: background variables.$transition-fast, transform variables.$transition-fast, box-shadow variables.$transition-fast;
 
   &:hover {
-    background: lighten($color-primary, 10%);
+    background: lighten(variables.$color-primary, 10%);
     transform: translateY(-2px);
-    box-shadow: 0 0 10px $color-primary, 0 0 20px $color-primary;
+    box-shadow: 0 0 10px variables.$color-primary, 0 0 20px variables.$color-primary;
   }
 
   &--accent {
-    background: $color-accent;
+    background: variables.$color-accent;
     &:hover {
-      background: lighten($color-accent, 10%);
-      box-shadow: 0 0 10px $color-accent, 0 0 20px $color-accent;
+      background: lighten(variables.$color-accent, 10%);
+      box-shadow: 0 0 10px variables.$color-accent, 0 0 20px variables.$color-accent;
     }
   }
 
   &--danger {
-    background: $color-danger;
+    background: variables.$color-danger;
     &:hover {
-      background: lighten($color-danger, 10%);
-      box-shadow: 0 0 10px $color-danger, 0 0 20px $color-danger;
+      background: lighten(variables.$color-danger, 10%);
+      box-shadow: 0 0 10px variables.$color-danger, 0 0 20px variables.$color-danger;
     }
   }
 }

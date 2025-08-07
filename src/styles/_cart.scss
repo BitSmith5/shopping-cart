@@ -1,19 +1,22 @@
+@use './variables';
+@use './mixins';
+
 .cart {
-  @include card-style;
+  @include mixins.card-style;
   max-width: 400px;
   margin: auto;
 
   .cart-header {
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    @include neon-glow($color-primary);
+    @include mixins.neon-glow(variables.$color-primary);
   }
 
   .cart-item {
     display: flex;
     justify-content: space-between;
     padding: 0.6rem 0;
-    border-bottom: 1px solid rgba($color-text, 0.1);
+    border-bottom: 1px solid rgba(variables.$color-text, 0.1);
 
     &:last-child {
       border-bottom: none;
@@ -24,7 +27,7 @@
     margin-top: 1rem;
     font-size: 1.2rem;
     text-align: right;
-    color: $color-accent;
-    @include neon-glow($color-accent);
+    color: variables.$color-accent;
+    @include mixins.neon-glow(variables.$color-accent);
   }
 }

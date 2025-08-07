@@ -1,3 +1,5 @@
+@use './variables';
+
 @mixin neon-glow($color) {
   text-shadow: 0 0 5px $color, 0 0 10px $color, 0 0 20px $color;
 }
@@ -9,8 +11,8 @@
 }
 
 @mixin card-style {
-  background: $color-bg-secondary;
-  border-radius: $border-radius;
+  background: variables.$color-bg-secondary;
+  border-radius: variables.$border-radius;
   padding: 1rem;
-  box-shadow: 0 0 10px rgba($color-primary, 0.1);
+  box-shadow: 0 0 10px rgba(variables.$color-primary, 0.1);
 }

@@ -1,11 +1,14 @@
+@use './variables';
+@use './mixins';
+
 h1, h2, h3 {
-  font-family: $font-family-base;
+  font-family: variables.$font-family-base;
   font-weight: bold;
-  @include neon-glow($color-primary);
+  @include mixins.neon-glow(variables.$color-primary);
 }
 
 p {
-  font-family: $font-family-alt;
+  font-family: variables.$font-family-alt;
   line-height: 1.5;
-  color: lighten($color-text, 10%);
+  color: lighten(variables.$color-text, 10%);
 }

@@ -1,27 +1,30 @@
+@use './variables';
+@use './mixins';
+
 .card {
-  @include card-style;
-  transition: transform $transition-fast;
+  @include mixins.card-style;
+  transition: transform variables.$transition-fast;
 
   &:hover {
     transform: translateY(-4px);
-    box-shadow: 0 0 15px rgba($color-primary, 0.4);
+    box-shadow: 0 0 15px rgba(variables.$color-primary, 0.4);
   }
 
   .card-image {
     width: 100%;
-    border-radius: $border-radius;
+    border-radius: variables.$border-radius;
     overflow: hidden;
   }
 
   .card-title {
     margin-top: 0.8rem;
     font-size: 1.2rem;
-    @include neon-glow($color-accent);
+    @include mixins.neon-glow(variables.$color-accent);
   }
 
   .card-price {
     margin-top: 0.4rem;
     font-size: 1rem;
-    color: $color-primary;
+    color: variables.$color-primary;
   }
 }
