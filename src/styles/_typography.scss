@@ -1,0 +1,11 @@
+h1, h2, h3 {
+  font-family: $font-family-base;
+  font-weight: bold;
+  @include neon-glow($color-primary);
+}
+
+p {
+  font-family: $font-family-alt;
+  line-height: 1.5;
+  color: lighten($color-text, 10%);
+}
