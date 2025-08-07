@@ -1,8 +1,7 @@
-import { useContext, createContext, useReducer, useCallback, useMemo } from "react";
-import type { CartContextType, CartItem, Product } from "../types/cart";
+import { useReducer, useCallback, useMemo } from "react";
+import type { CartItem, Product } from "../types/cart";
 import type { ReactNode } from "react";
-
-export const CartContext = createContext<CartContextType | undefined>(undefined);
+import { CartContext } from "./CartContextDef";
 
 interface State {
     items: CartItem[];
@@ -47,26 +46,26 @@ function cartReducer(state: State, action: Action): State {
 export function CartProvider({ children }: { children: ReactNode }) {
     const [state, dispatch] = useReducer(cartReducer, initialState);
 
-    function addItem(product: Product, quantity = 1) {
-        const productId = state.items.find(item => item.product.id === product.id);
-        if (productId) {
-            dispatch({ type: "UPDATE_ITEM_QUANTITY", payload: { productId: product.id, quantity: productId.quantity + quantity } });
+    const addItem = useCallback((product: Product, quantity = 1) => {
+        const existingItem = state.items.find(item => item.product.id === product.id);
+        if (existingItem) {
+            dispatch({ type: "UPDATE_ITEM_QUANTITY", payload: { productId: product.id, quantity: existingItem.quantity + quantity } });
             return;
         }
         dispatch({ type: "ADD_ITEM", payload: { product, quantity } });
-    }
+    }, [state.items]);
 
-    function removeItem(productId: string) {
+    const removeItem = useCallback((productId: string) => {
         dispatch({ type: "REMOVE_ITEM", payload: { productId } });
-    }
+    }, []);
 
-    function updateItemQuantity(productId: string, quantity: number) {
+    const updateItemQuantity = useCallback((productId: string, quantity: number) => {
         dispatch({ type: "UPDATE_ITEM_QUANTITY", payload: { productId, quantity } });
-    }
+    }, []);
 
-    function clearCart() {
+    const clearCart = useCallback(() => {
         dispatch({ type: "CLEAR_CART" });
-    }
+    }, []);
 
     const getTotalItems = useCallback(() => {
         return state.items.reduce((total, item) => total + item.quantity, 0);
@@ -84,7 +83,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         clearCart,
         getTotalItems,
         getTotalPrice
-    }), [state.items, getTotalItems, getTotalPrice]);
+    }), [state.items, addItem, removeItem, updateItemQuantity, clearCart, getTotalItems, getTotalPrice]);
 
     return (
         <CartContext.Provider value={value}>
@@ -92,11 +91,3 @@ export function CartProvider({ children }: { children: ReactNode }) {
         </CartContext.Provider>
     );
 }
-
-export function useCart(): CartContextType {
-  const context = useContext(CartContext);
-  if (!context) {
-    throw new Error("useCart must be used within a CartProvider");
-  }
-  return context;
-};

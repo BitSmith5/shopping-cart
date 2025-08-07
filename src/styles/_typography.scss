@@ -1,5 +1,6 @@
 @use './variables';
 @use './mixins';
+@use 'sass:color';
 
 h1, h2, h3 {
   font-family: variables.$font-family-base;
@@ -10,5 +11,5 @@ h1, h2, h3 {
 p {
   font-family: variables.$font-family-alt;
   line-height: 1.5;
-  color: lighten(variables.$color-text, 10%);
+  color: color.adjust(variables.$color-text, $lightness: 10%);
 }

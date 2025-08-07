@@ -5,29 +5,42 @@
   @include mixins.card-style;
   max-width: 400px;
   margin: auto;
+}
 
-  .cart-header {
-    font-size: 1.4rem;
-    margin-bottom: 1rem;
-    @include mixins.neon-glow(variables.$color-primary);
+.cart-header {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  @include mixins.neon-glow(variables.$color-primary);
+}
+
+.cart-empty {
+  text-align: center;
+  color: variables.$color-text;
+  font-style: italic;
+  margin: 2rem 0;
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem 0;
+  border-bottom: 1px solid rgba(variables.$color-text, 0.1);
+
+  &:last-child {
+    border-bottom: none;
   }
+}
 
-  .cart-item {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.6rem 0;
-    border-bottom: 1px solid rgba(variables.$color-text, 0.1);
-
-    &:last-child {
-      border-bottom: none;
-    }
-  }
-
-  .cart-total {
-    margin-top: 1rem;
-    font-size: 1.2rem;
-    text-align: right;
-    color: variables.$color-accent;
-    @include mixins.neon-glow(variables.$color-accent);
-  }
+.cart-total {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  text-align: right;
+  color: variables.$color-accent;
+  @include mixins.neon-glow(variables.$color-accent);
 }

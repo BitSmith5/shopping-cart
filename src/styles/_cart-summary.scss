@@ -1,0 +1,77 @@
+@use './variables';
+@use './mixins';
+
+.cart-summary {
+  @include mixins.card-style;
+  margin-top: 1rem;
+}
+
+.cart-summary-header {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  @include mixins.neon-glow(variables.$color-accent);
+}
+
+.cart-summary-items {
+  margin-bottom: 1rem;
+}
+
+.cart-summary-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid rgba(variables.$color-text, 0.1);
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.cart-summary-item-name {
+  flex: 1;
+  font-size: 0.9rem;
+  color: variables.$color-text;
+}
+
+.cart-summary-item-quantity {
+  font-size: 0.8rem;
+  color: variables.$color-primary;
+  margin: 0 0.5rem;
+}
+
+.cart-summary-item-total {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: variables.$color-accent;
+  min-width: 60px;
+  text-align: right;
+}
+
+.cart-summary-totals {
+  margin: 1rem 0;
+  padding: 1rem 0;
+  border-top: 2px solid variables.$color-primary;
+  border-bottom: 2px solid variables.$color-primary;
+}
+
+.cart-summary-total-items {
+  font-size: 1rem;
+  margin: 0 0 0.5rem 0;
+  color: variables.$color-text;
+}
+
+.cart-summary-total-price {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin: 0;
+  color: variables.$color-accent;
+  @include mixins.neon-glow(variables.$color-accent);
+}
+
+.cart-summary-empty {
+  text-align: center;
+  color: variables.$color-text;
+  font-style: italic;
+  margin: 1rem 0;
+} 
