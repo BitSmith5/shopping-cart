@@ -1,35 +1,64 @@
 @use './variables.scss';
+@use './mixins.scss';
 @use "sass:color";
 
 .button {
-  padding: 0.6rem 1.2rem;
-  border-radius: variables.$border-radius;
-  border: none;
-  font-weight: bold;
-  text-transform: uppercase;
-  background: variables.$color-primary;
-  color: #000;
-  transition: background variables.$transition-fast, transform variables.$transition-fast, box-shadow variables.$transition-fast;
+  @include mixins.button-base;
+  background: linear-gradient(135deg, variables.$color-primary, variables.$color-primary-hover);
+  color: white;
+  font-weight: 600;
+  letter-spacing: 0.025em;
 
   &:hover {
-    background: color.adjust(variables.$color-primary, $lightness: 10%);
-    transform: translateY(-2px);
-    box-shadow: 0 0 10px variables.$color-primary, 0 0 20px variables.$color-primary;
+    background: linear-gradient(135deg, variables.$color-primary-hover, variables.$color-primary);
+    transform: translateY(-1px);
+    box-shadow: variables.$shadow-lg;
+    @include mixins.subtle-glow(variables.$color-primary, 0.2);
+  }
+
+  &:active {
+    transform: translateY(0);
+    box-shadow: variables.$shadow-md;
   }
 
   &--accent {
-    background: variables.$color-accent;
+    background: linear-gradient(135deg, variables.$color-accent, variables.$color-accent-hover);
+    
     &:hover {
-      background: color.adjust(variables.$color-accent, $lightness: 10%);
-      box-shadow: 0 0 10px variables.$color-accent, 0 0 20px variables.$color-accent;
+      background: linear-gradient(135deg, variables.$color-accent-hover, variables.$color-accent);
+      @include mixins.subtle-glow(variables.$color-accent, 0.2);
     }
   }
 
   &--danger {
-    background: variables.$color-danger;
+    background: linear-gradient(135deg, variables.$color-danger, color.adjust(variables.$color-danger, $lightness: 10%));
+    
     &:hover {
-      background: color.adjust(variables.$color-danger, $lightness: 10%);
-      box-shadow: 0 0 10px variables.$color-danger, 0 0 20px variables.$color-danger;
+      background: linear-gradient(135deg, color.adjust(variables.$color-danger, $lightness: 10%), variables.$color-danger);
+      @include mixins.subtle-glow(variables.$color-danger, 0.2);
+    }
+  }
+
+  &--secondary {
+    background: transparent;
+    color: variables.$color-text;
+    border: 1px solid rgba(variables.$color-text, 0.2);
+    
+    &:hover {
+      background: rgba(variables.$color-text, 0.05);
+      border-color: rgba(variables.$color-text, 0.3);
+      @include mixins.subtle-glow(variables.$color-text, 0.1);
+    }
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    
+    &:hover {
+      transform: none;
+      box-shadow: variables.$shadow-md;
     }
   }
 }

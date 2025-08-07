@@ -6,17 +6,17 @@ import { ProductList } from './components/ProductList'
 function App() {
   // Example products data
   const products = [
-    { id: '1', name: 'Sci-Fi Gadget X1', description: 'Advanced technology from the future', price: 29.99, image: 'https://via.placeholder.com/150' },
-    { id: '2', name: 'Neon Light Device', description: 'Illuminate your world with style', price: 39.99, image: 'https://via.placeholder.com/150' },
-    { id: '3', name: 'Holographic Display', description: 'Project your dreams into reality', price: 49.99, image: 'https://via.placeholder.com/150' },
-    { id: '4', name: 'Quantum Computer', description: 'Computing power beyond imagination', price: 199.99, image: 'https://via.placeholder.com/150' }
+    { id: '1', name: 'Quantum Navigation Module', description: 'Advanced positioning system for deep space exploration', price: 29.99, image: 'https://via.placeholder.com/150' },
+    { id: '2', name: 'Plasma Thruster Array', description: 'High-efficiency propulsion system for orbital maneuvers', price: 39.99, image: 'https://via.placeholder.com/150' },
+    { id: '3', name: 'Holographic Interface Panel', description: 'Next-generation control system for spacecraft operations', price: 49.99, image: 'https://via.placeholder.com/150' },
+    { id: '4', name: 'Neural Network Processor', description: 'AI-powered computing core for autonomous systems', price: 199.99, image: 'https://via.placeholder.com/150' }
   ];
 
   return (
     <div className="app">
       <CartProvider>
         <header className="app-header">
-          <h1 className="app-title">Sci-Fi Shopping Cart</h1>
+          <h1 className="app-title">Space Commerce Hub</h1>
         </header>
         
         <main className="app-main">

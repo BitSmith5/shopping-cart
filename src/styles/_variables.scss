@@ -1,13 +1,27 @@
-// Sci-fi Dark Theme Variables
-$color-bg: #0a0f1c;
-$color-bg-secondary: #121826;
-$color-primary: #00ffe0;
-$color-accent: #ff00aa;
-$color-text: #d4f0ff;
-$color-danger: #ff3355;
+// Modern Spacecraft Theme Variables
+$color-bg: #0a0e17;
+$color-bg-secondary: #1a1f2e;
+$color-bg-tertiary: #252a3a;
+$color-primary: #4a9eff;
+$color-primary-hover: #5ba8ff;
+$color-accent: #00d4aa;
+$color-accent-hover: #00e6b8;
+$color-text: #e8f4fd;
+$color-text-secondary: #b8c7d9;
+$color-text-muted: #8a9bb3;
+$color-danger: #ff4757;
+$color-success: #2ed573;
+$color-warning: #ffa502;
 
-$font-family-base: 'Orbitron', sans-serif;
-$font-family-alt: 'Roboto', sans-serif;
+$font-family-base: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-family-mono: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
 
-$border-radius: 8px;
-$transition-fast: 0.2s ease-in-out;
+$border-radius: 6px;
+$border-radius-lg: 12px;
+$transition-fast: 0.15s ease-out;
+$transition-medium: 0.25s ease-out;
+
+$shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
+$shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15), 0 4px 10px rgba(0, 0, 0, 0.1);
+$shadow-xl: 0 20px 40px rgba(0, 0, 0, 0.2), 0 8px 16px rgba(0, 0, 0, 0.1);
